@@ -1,0 +1,14 @@
+<VirtualHost ruiaf.org>
+ServerAdmin ruiandreferreira@gmail.com
+ServerName ruiaf.org
+ServerAlias *.ruiaf.org
+
+	  <Directory "/">
+			SetHandler python-program
+			PythonPath "sys.path + ['/home/ruiaf/web/']"
+			PythonHandler django.core.handlers.modpython
+			SetEnv DJANGO_SETTINGS_MODULE website.settings
+			PythonDebug On
+	  </Directory>
+</VirtualHost>
+

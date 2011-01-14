@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="verify-v1" content="/F8f5OjleGRdAxBMiMA/A/pmXAYmTKd3jZ6zNJSY2jQ=" />
+    <link rel="stylesheet" href="/static/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/handheld.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="/static/code.css"  type="text/css"/>
+    <link href="http://feeds2.feedburner.com/blog-ruiaf" rel="alternate" type="application/rss+xml" title="ruiaf.org" />
+    <link rel="icon" type="image/ico" href="/static/rui.ico" />
+    <title>ruiaf.org</title>
+{% block javascript %} {% endblock%}
+</head>
+
+<body>
+	<div id="header">
+	<h1>{% block title %}Title{% endblock %} @ ruiaf.org</h1>
+	</div>
+
+	<div id="main">
+	<div id="content">
+		{% block content %}{% endblock %}
+
+	</div>
+
+	<div id="sidebar">
+	<h2>What is this ?</h2>
+		{% block whatis %}{% endblock %}
+	
+	<h2>Menu</h2>
+	<div id="menu">
+	<ul>
+	<li id="menu_blog"><a href="/">Blog</a></li>
+	<li id="menu_abou"><a href="/aboutme/">About me</a></li>
+	<li id="menu_pict"><a href="http://www.flickr.com/photos/ruiferreira/sets/">Pictures</a></li>
+	<li id="menu_algo"><a href="/algorithms/">Algorithms</a></li>
+	<li id="menu_life"><a href="/lifestream/">Lifestream</a></li>
+	</ul>
+	</div>
+
+	{% block subpagesection %}{% endblock %}
+
+	<h2>Advertisement</h2>
+	<p>
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-2473879228773039";
+	/* 250x250, created 10/14/08 */
+	google_ad_slot = "8380316215";
+	google_ad_width = 250;
+	google_ad_height = 250;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</p>
+	<h2>Link Love <img src="/static/heart.png" alt="Heart"></img></h2>
+	{% for cat,blogcat in blogs.items %}
+		<h3>{{cat}}</h3>
+		{% for blog in blogcat %}
+			<h4><a href="{{blog.address}}">{{ blog.name}}</a></h4>
+		{% endfor %}
+	{% endfor %}
+
+	<p>
+		<a href="http://validator.w3.org/check?uri=referer"><img
+			src="http://www.w3.org/Icons/valid-xhtml10"
+			alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  	</p>
+  
+	</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-599359-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</div>
+
+</body>
+</html>

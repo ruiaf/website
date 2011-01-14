@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block javascript %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
+<script type="text/javascript" src="/static/js/searchupdatecontent.js"></script>
+{% endblock %}
+
+{% block title %}
+<a href="./">Lifestream</a>
+{% endblock %}
+
+{% block whatis %}
+	<p>You're looking at my lifestream, an aggregator of the bits and pieces of what I do
+		online. Here you can see my bookmarks, pictures and shared items as they come along.
+		You can also subscribe to <a href="http://friendfeed.com/ruiaf?format=atom">this feed</a> and use your reader of choice. </p>
+	<p>Obviously, this works more as my own reference. People hardly are mildly interested in this page.</p>
+{% endblock %}
+
+{% block subpagesection %}
+        <h2>Search</h2>
+        <form id="searchform" method="post" action="/lifestream/">
+        <p><input type="text" id="searchquery" name="search" size="22" maxlength="50" value="" />
+        <input id="searchsubmit" type="submit" name="go" value="Go" /></p>
+        </form>
+{% endblock %}
+
+
+{% block content %}
+	{% include 'django-friendfeed/django-friendfeed-content.html' %}
+{% endblock %}

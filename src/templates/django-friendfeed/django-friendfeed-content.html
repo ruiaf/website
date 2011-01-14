@@ -1,0 +1,24 @@
+{% if search %}
+<div id="status">
+{% if not items %}
+<p>Sorry, got no result{{items|length|pluralize}} for <b>{{search}}</b></p>
+{% else %}
+<p>Got {{items|length}} result{{items|length|pluralize}} for <b>{{search}}</b></p>
+{% endif %}
+</div>
+{% endif %}
+
+{% for item in items %}
+{% ifchanged %}
+<h2><img src="{{item.service.iconUrl}}" alt="{{item.service.name}}"></img> <a href="{{item.service.profileUrl}}">{{item.service.name}}</a></h2>
+{% endifchanged %}
+<p>
+<a href="{{item.link}}"> {{item.title}} </a> - {{item.published|timesince}} ago
+<br />
+{% for media in item.media %}
+{% for thumb in media.thumbnails %}
+<img src="{{thumb.url}}" alt="{{item.title}}"></img>
+{% endfor %}
+{% endfor %}
+</p>
+{% endfor %}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load humanize %}
+
+{% block rss %}
+{% if tag_slug %}
+<link rel="alternate" type="application/rss+xml" title="{% trans "Latest entries in" %a}" {{ tag_slug }}" href="{{ blango_url }}feeds/tag/{{ tag_slug }}/
+/>
+{% else %}
+<link rel="alternate" type="application/rss+xml" title="{% trans "Latest entries in" %}" href="{{ blango_url }}feeds/latest/"/>
+{% endif %}
+{% endblock %}
+
+
+{% block whatis %}
+<p>
+You're reading <a href="/aboutme/">my</a> weblog. As it's being used with different intentions, this blog is trilingual. Posts
+about my life, travelling and other topics are mostly written in portuguese but ocasionaly also in english or italian. Research posts
+are written in english. Sorry for the mess, I'm trying to figure a way to automagically translate the content. Meanwhile, try to sort it
+out with the tags.
+</p>
+{% endblock %}
+
+{% block title %}
+<a href="/">Stop and Say Hello</a>
+{% endblock %}
+
+
+{% block content %}
+
+<h2> Latest Entries{% if tag_slug %} in {{ tag_slug }}{%endif%}</h2>
+<div class="toc">
+        <a title="{% trans "Latest entries" %}" href="http://feeds2.feedburner.com/blog-ruiaf"><img src="/static/rss.png" alt="feed" /></a>
+
+<!-- Include the Google Friend Connect javascript library. -->
+<script type="text/javascript" src="http://www.google.com/friendconnect/script/friendconnect.js"></script>
+<!-- Define the div tag where the gadget will be inserted. -->
+<div id="div-7245384911035575835" style="width:205px;border:1px solid #cccccc;"></div>
+<!-- Render the gadget into a div. -->
+<script type="text/javascript">
+var skin = {};
+skin['BORDER_COLOR'] = '#cccccc';
+skin['ENDCAP_BG_COLOR'] = '#CBE86B';
+skin['ENDCAP_TEXT_COLOR'] = '#333333';
+skin['ENDCAP_LINK_COLOR'] = '#1C140D';
+skin['ALTERNATE_BG_COLOR'] = '#ffffff';
+skin['CONTENT_BG_COLOR'] = '#ffffff';
+skin['CONTENT_LINK_COLOR'] = '#1C140D';
+skin['CONTENT_TEXT_COLOR'] = '#333333';
+skin['CONTENT_SECONDARY_LINK_COLOR'] = '#1C140D';
+skin['CONTENT_SECONDARY_TEXT_COLOR'] = '#1C140D';
+skin['CONTENT_HEADLINE_COLOR'] = '#333333';
+skin['NUMBER_ROWS'] = '5';
+google.friendconnect.container.setParentUrl('/' /* location of rpc_relay.html and canvas.html */);
+google.friendconnect.container.renderMembersGadget(
+ { id: 'div-7245384911035575835',
+   site: '06559560685855352384' },
+  skin);
+</script>
+
+{% if user.is_staff %}
+        <h3>{% trans "Admin" %}</h3>
+            <ul>
+                <li><a href="{{ blango_url }}ad/">{% trans "Admin" %}</a></li>
+                <li><a href="{{ blango_url }}ad/blango/entry/add/">{% trans "Add entry" %}</a></li>
+            </ul>
+{% endif %}
+
+
+    <h3>Archives</h3>
+    <ul>
+            {% for d in dates %}
+                <li><a href="{{ blango_url }}{{ blango_lang }}{{ d.year }}/{{ d|date:"m" }}/">{{ d|date:"F, Y" }}</a></li>
+            {% endfor %}
+        </ul>
+    <h3>Tags</h3>
+        <ul>
+            {% for t in tags %}
+                <li><a href="{{ blango_url }}{{ blango_lang }}tag/{{ t.slug }}/">{{ t }}</a></li>
+            {% endfor %}
+        </ul>
+</div>
+
+<div class="posts">
+    {% for e in page.object_list %}
+        <div class="entry" id="entry-{{ e.id }}">
+            <h2>
+                <a href="{{ e.get_absolute_url }}">{{ e.title }}</a>
+                {% if user.is_staff %}<span class="edit">( <a href=/ad/blango/entry/{{ e.id }}/>{% trans "Edit" %}</a> )</span>{% endif %}
+            </h2>
+            <div class="ebody">
+                {{ e.body_html|safe }}
+            </div>
+            <div class="meta">
+                <span class="time">Posted {{ e.pub_date|naturalday }} {% trans "at" %} {{ e.pub_date|time:"H:i:s" }} {{ e.pub_date|date:"T" }}</span>
+                on: <ul class="tags">
+                    {% for t in e.tags.all %}
+                        <li><a href="{{ blango_url }}{{ blango_lang }}tag/{{ t.slug }}/">{{ t }}{%if not forloop.last %},{%endif%}</a></li>
+                    {% endfor %}
+                </ul>
+            | <span class="comments">
+                <a href="{{ e.get_absolute_url }}#comments">
+                    {% blocktrans count e.comments.count as ccount %}{{ ccount }} comment{% plural %}{{ ccount }} comments{% endblocktrans %}
+                </a>
+            </span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% if page.has_other_pages %}
+    {{ page.paginator.page_list.as_ul }}
+{% endif %}
+
+{% endblock %}

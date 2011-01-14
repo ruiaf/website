@@ -1,0 +1,84 @@
+body {
+	color:#333;
+	background-color:white;
+	margin:0px;
+	padding:0px;
+	}
+
+h2 {
+
+        color:#6BB300;
+}
+
+a{
+        color: #555555;
+        text-decoration:underline
+}
+
+#top {
+	margin: 10px 20px 0px 20px;
+	border: 0px solid #AAAAAA;
+	padding: 10px;
+	height: 50px; 
+	background: #6BB300;
+	}
+
+#top h1 {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+        font-size:1.5em;
+        font-weight:bold;
+        color:#E6FFBF;
+        margin:0;
+        padding:0 0 0 10px
+}
+
+#top h2 {
+ font-family:Verdana, Arial, Helvetica, sans-serif;
+        font-size:0.7em;
+        color:#000000;
+        margin:0;
+        padding:0 0 5px 15px
+}
+
+img.floatLeft { 
+	position: relative;
+	display: block;
+	float: left; 
+	z-index: 2;
+	margin: 0px;
+}
+
+div.newstitle {
+	margin: 10px 210px 0px 20px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+        color:#E6FFBF;
+	padding: 0px 0px 0px 5px;
+	background-color:#6BB300;
+	font-size:1.2em;
+	z-index: 2;
+}
+
+div.newstext {
+	margin: 2px 210px 10px 20px;
+	padding:5px;
+	border: 1px dashed #AAAAAA;
+	font-size:0.8em;
+	z-index: 2;
+}
+
+#right {
+	position: absolute;
+	top: 80px;
+	right: 0px; /* Opera5.02 will show a space 
+	at right when there is no scroll bar */
+	margin: 10px 20px 20px 20px;
+	padding: 0px 10px 10px 10px;
+	border: 0px solid #AAAAAA;
+	font-size:0.8em;
+	background: #E6FFBF;
+	width: 160px; 
+	}
+#right p,ul,li{
+	padding:0;
+}
+

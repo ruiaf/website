@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+Projects
+{% endblock %}
+
+{% block whatis %}
+	<p>These are some projects or musings I've been working on my spare time. My interests are pretty broad,
+		thus there are different things on whatever idea pops into my head. There are some missing but I
+		will try to add them as time goes by.</p>
+{% endblock %}
+
+{% block content %}
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#xip">XIP</a></li>
+<li><a href="#gaze">Gaze at the landscape</a></li>
+<li><a href="#odw">Open Data Warehouse</a></li>
+<li><a href="#robocup">FC Portugal - Robocup Soccer Simulation Team</a></li>
+<li><a href="#qexpedia">Qexpedia</a></li>
+<li><a href="#djangoff">Django-FriendFeed</a></li>
+</ul>
+
+<hr>
+
+<a name="xip"></a>
+<h2>XIP</h2>
+<p>XIP is a maze solver with long-term planning that me and some friends have been developing for a few years now.
+This project is used in the <a href="http://microrato.ua.pt/">Ciber-Mouse</a> competition,
+ a contest organized by the <a href="">University of Aveiro</a>, Portugal that
+is quite interesting.</p>
+<p> We got the <a href="http://microrato.ua.pt/main/historia/historia-edic2006-CiberRato.htm#classificacao">first place</a>
+ in 2006, <a href="http://robotica.ua.pt/robotica2008/index.htm">second</a> in 2008 and <a href="http://microrato.ua.pt/main/historia/historia-edic2005-CiberRato.htm#classificacao">fourth</a> in 2005, so this is a particularly
+successful project. Lots of technology and algorithms involved so I'll try to sum it up: C++ and SDL for the code
+and runtime debugging tool; A* for path planning; Fuzzy logic for short term decision such as avoiding colision; Morphological
+operations for knowledge consolidation</p>
+<p>We also developed some satelite tools like a map editor and a log viewer in flash. The project has a <a href="http://xiplog.blogspot.com/">blog</a> with
+ detailed information about this and more but, unfortunely for non-portuguese speakers, it's in portuguese.<p>
+
+<a name="gaze"></a>
+<h2 name="gaze">Gaze at the landscape</h2>
+<p><a href="http://sourceforge.net/projects/gaze/">Gaze</a> is a cross-platfrom desktop wallpaper manager developed in python and gtk+ that uses pictures from online sources, namely Flickr.
+We plan to have a intelligent rating system / taste discovery system on it but I'm feeling that isn't going to implemented anytime soon.</p>
+
+<a name="odw"></a>
+<h2 name="odw">Open Data Warehouse</h2>
+<p>While at <a href="http://www.criticalsoftware.com">Critical Software</a> I worked on a project called <a href="http://www.cisuc.uc.pt/view_project.php?id_p=68">ADW</a> that had a very interesting approach to a build a scalable,
+distributed and heterogeneous data warehouse but it used horrible (as in acient) technology. I'm considering to implement it
+as a middleware in python. If you can dig them, there are a few papers about it.</p>
+
+<p>The main goal of the project is to develop a technology that allows a dramatic reduction of the hardware, software, and administration cost when compared to tratidional data warehouses. The project's approach is based on the clever combination of two simple ideas: 1) uniform data striping to partition the data warehouse facts over an arbitrary number of computers, in such a way that queries can be executed in a true parallel fashion (a query is actually split into many partial queries), and 2) an approximate query answering strategy to deal with the momentary unavailability of one or more computers in the cluster. The ADW approach takes advantage of the specific characteristics of star schemas and typical data warehouse queries profile to guarantee optimal load balance of query execution and assures high scalability. In data warehouse striping the fact tables are distributed by an arbitrary number of computers and the queries are executed in parallel by all the computers, guarantying a nearly optimal speed up.</p>
+
+<a name="robocup"></a>
+<h2 name="robocup">FC Portugal - Robocup Soccer Simulation Team</h2>
+<p>While in college I had a fellowship to work in the <a href="http://www.ieeta.pt/robocup/">FC Portugal</a> soccer
+ simulation team that was RoboCup 2000 European Champion
+ in Amsterdam and RoboCup 2000 World Champion in Melbourne. FC Portugal is developed jointly at
+<a href="http://www.ua.pt/">IEETA / University of Aveiro</a> and
+<a href="http://www.ncc.up.pt/liacc/"> LIACC (NIADR) / University of Porto</a> </p>
+
+<a name="qexpedia"></a>
+<h2 name="qexpedia">Qexpedia</h2>
+<p>A web search query expansioner that uses the wikipedia as source.</p>
+
+<a name="djangoff"></a>
+<h2 name="djangoff">Django-FriendFeed</h2>
+<p><a href="http://code.google.com/p/django-friendfeed/">Django-FriendFeed</a> is a small Django application
+ that shows a lifefeed on a Django powered site (as <a href="/">this one</a>).</p>
+{% endblock %}

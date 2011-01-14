@@ -1,0 +1,8 @@
+{% extends "timeto/base.html" %}
+
+{% block content %}
+	<h1>Time to</h1>
+	{% for day in specialdays %}
+		<div class="day"><a href="./{{day.slug}}/">{{ day.name}}</a></div>
+	{% endfor %}
+{% endblock %}

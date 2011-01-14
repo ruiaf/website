@@ -1,0 +1,53 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Lucida grande, sans-serif;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0em;
+  width: 100%;
+}
+
+#main {
+  position: relative;
+  font-size: 2em;
+  width: 100%;
+  margin-top: 1em;
+}
+
+#main h1{
+  text-align: center;
+}
+
+.day {
+ float: left;
+ width: 11em;
+ margin: 0.1em;
+ text-align: center;
+} 
+
+#spdtime {
+ text-align: center;
+ font-size: 3em;
+ padding: 1em;
+} 
+
+#spdname {
+ text-align: center;
+ font-size: 2em;
+} 
+
+a, a:hover, a:visited, a:link {
+  color: #ddd;
+  text-decoration: none;
+  background-color: inherit;
+  font-weight: bold;
+}

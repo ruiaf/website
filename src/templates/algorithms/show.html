@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+<a href="../">Algorithms</a>
+{% endblock %}
+
+{% block whatis %}
+	<p>{{algorithm.description}}</p>
+{% endblock %}
+
+{% block content %}
+
+<h2>{{algorithm.name}} in {{algorithm.language}}</h2>
+<p><a href="{{algorithm.address}}">Download source</a></p>
+
+{{formated_code|safe}}
+
+{% endblock %}

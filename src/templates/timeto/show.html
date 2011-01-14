@@ -1,0 +1,16 @@
+{% extends "timeto/base.html" %}
+
+{% block title %}
+Time to {{specialday.name}}
+{% endblock %}
+
+{% block whatis %}
+	<p>How long to {{specialday.name}}?</p>
+{% endblock %}
+
+{% block content %}
+
+<div id="spdtime">{{ specialday.date|timeuntil }}</div>
+<div id="spdname">to {{specialday.name}}</div>
+
+{% endblock %}

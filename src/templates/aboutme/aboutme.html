@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+<a href="./">About Me</a>
+{% endblock %}
+
+{% block whatis %}
+	<p>This is a short biography of me, Rui Ferreira. The short &amp; sweet summary is that I'm a 25 years old PhD student from Porto, Portugal living and studying in Pisa, Italy </p>
+{% endblock %}
+
+{% block content %}
+
+<div id="contacts">
+<h3>Contacts</h3>
+<table id="contactst">
+<tr><th>Email</th><td>ferreira@di.unipi.it</td></tr>
+<tr><th>Phone, Office</th><td>(+39) 0502213138</td></tr>
+<tr><th>Mobile, Italy</th><td>(+39) 3298110348</td></tr>
+<tr><th>Mobile, Portugal</th><td>(+351) 966305312</td></tr>
+<tr><th>Google Talk</th><td>ruiandreferreira@gmail.com</td></tr>
+<tr><th>Skype</th><td>rui.andre</td></tr>
+<tr><th>Flickr</th><td>http://www.flickr.com/photos/ruiferreira/</td></tr>
+<tr><th>LinkedIn</th><td>http://www.linkedin.com/in/ruiaf/</td></tr>
+<tr><th>Snail Mail</th><td>
+
+Rui Ferreira, Room 341<br/>
+Dipartimento di Informatica<br/>
+Università di Pisa<br/>
+Largo Bruno Pontecorvo, 3<br/>
+56127 Pisa, Italy
+</td></tr>
+</table>
+<a href="/static/ferreira.vcf"><img src="/static/img/vcard.png" /></a>
+</div>
+
+<div class="picture"><img src="/static/me.jpg" alt="Me in bratislava"></img><p>Me in Bratislava, Slovakia</p></div>
+
+<h2>Me in a nutshell</h2>
+<p>Hey, I'm Rui and I'm a Portuguese 25 years old student from Porto, living and studying under the Tuscan sun in Pisa, Italy. I've studied at the University of Porto, Portugal and at the Technical University of Delft, The Netherlands.</p>
+
+<p>Since January 2009, I'm a doctorate student in <b>Algorithms and Data Structures</b> under the supervision of Professor <a href="http://www.di.unipi.it/~grossi/">Roberto Grossi</a> at the Università di Pisa, Italy</p>.
+
+{% endblock %}

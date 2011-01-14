@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+<a href="./">Algorithms</a>
+{% endblock %}
+
+{% block whatis %}
+	<p>These are a few implementations of algorithms that I've been accumulating in the last few years. I've got a few more
+		but I'll try to clean and comment them before adding here.</p>
+{% endblock %}
+
+{% block content %}
+
+<h2>List of algorithms</h2>
+	<div class="toc">
+
+<!-- Include the Google Friend Connect javascript library. -->
+<script type="text/javascript" src="http://www.google.com/friendconnect/script/friendconnect.js"></script>
+<!-- Define the div tag where the gadget will be inserted. -->
+<div id="div-1053073235739844043" style="width:215px;border:1px solid #cccccc;"></div>
+<!-- Render the gadget into a div. -->
+<script type="text/javascript">
+var skin = {};
+skin['BORDER_COLOR'] = '#cccccc';
+skin['ENDCAP_BG_COLOR'] = '#CBE86B';
+skin['ENDCAP_TEXT_COLOR'] = '#333333';
+skin['ENDCAP_LINK_COLOR'] = '#1C140D';
+skin['ALTERNATE_BG_COLOR'] = '#ffffff';
+skin['CONTENT_BG_COLOR'] = '#ffffff';
+skin['CONTENT_LINK_COLOR'] = '#1C140D';
+skin['CONTENT_TEXT_COLOR'] = '#333333';
+skin['CONTENT_SECONDARY_LINK_COLOR'] = '#1C140D'; 
+skin['CONTENT_SECONDARY_TEXT_COLOR'] = '#1C140D';
+skin['CONTENT_HEADLINE_COLOR'] = '#333333'; 
+skin['DEFAULT_COMMENT_TEXT'] = '- add your comment here -';
+skin['HEADER_TEXT'] = 'Comments';
+skin['POSTS_PER_PAGE'] = '5';
+google.friendconnect.container.setParentUrl('/' /* location of rpc_relay.html and canvas.html */);
+google.friendconnect.container.renderWallGadget(
+ { id: 'div-1053073235739844043',
+   site: '06559560685855352384',
+   'view-params':{"disableMinMax":"false","scope":"PAGE","startMaximized":"true"}
+ },
+  skin);
+</script>
+
+	{% regroup algorithms|dictsort:"language" by language as language_list %}
+
+
+	<h3>Table of Contents</h3>
+		{% for lang in language_list %}
+ 		   <h4>Algorithms in {{ lang.grouper }}</h4>
+ 		   <ul>
+    		    {% for alg in lang.list %}
+				<li><a href="#{{alg.slug}}">{{ alg.name}}</a></li>
+        	    {% endfor %}
+   		 </ul>
+		{% endfor %}
+	</div>
+	{% for alg in algorithms %}
+		<div class="algorithm">
+		<h3><a name="{{alg.slug}}" href="./{{alg.slug}}/">{{ alg.name}}</a> in {{alg.language}}</h3>
+		<p> {{ alg.description }}</p>
+		</div>
+	{% endfor %}
+
+
+{% endblock %}
