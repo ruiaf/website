@@ -15,13 +15,10 @@ def show(request,slug):
 	from pygments.lexers import get_lexer_by_name
 	from pygments.formatters import HtmlFormatter
 
-	try:
-		code = open("/home/ruiaf/web/website" + algorithm.address,'r')
-		lexer = get_lexer_by_name(lower(algorithm.language), stripall=True)
-		formatter = HtmlFormatter(linenos=True, cssclass="highlight")
-		result = highlight(code.read(), lexer, formatter)
-	except:
-		result = ""
+	code = open("/var/www/ruiaf/" + algorithm.address,'r')
+	lexer = get_lexer_by_name(lower(algorithm.language), stripall=True)
+	formatter = HtmlFormatter(linenos=True, cssclass="highlight")
+	result = highlight(code.read(), lexer, formatter)
 
 	c = {'algorithm': algorithm, 'formated_code': result}
 	return render_to_response('algorithms/show.html', c, context_instance=RequestContext(request))
