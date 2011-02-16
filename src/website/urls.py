@@ -3,6 +3,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from website.algorithms.models import AlgorithmSitemap
 from website.sitemaps import PagesSitemap
+from website.settings import DEBUG
 admin.autodiscover()
 
 BASE="/home/ferreira/dev-github/website/src/"
